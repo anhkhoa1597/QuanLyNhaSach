@@ -4,15 +4,11 @@ using System.Data;
 using System.Text;
 using CNPM.DataAccessTier;
 using CNPM.DataTransferObject;
+using CNPM.DesignPatterns;
 
 namespace CNPM.BusinessLogicTier
 {
-    interface iAuthentication
-    {
-        bool Authenticate(string username, string password);
-    }
-
-    class TaiKhoanBLT : iAuthentication
+    class TaiKhoanBLT : IAuthentication
     {
         public bool Authenticate(string username, string password)
         {
@@ -28,7 +24,7 @@ namespace CNPM.BusinessLogicTier
         }
     }
 
-    class AuthenticationProxy:iAuthentication
+    class AuthenticationProxy:IAuthentication
     {
         private TaiKhoanBLT taiKhoanBLT;
 

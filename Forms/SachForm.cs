@@ -11,15 +11,19 @@ using System.IO;
 
 namespace CNPM
 {
-    public partial class SachForm : Form
+    public partial class SachForm : Form, ISubcriber
     {
         SachBLT bltSach = new SachBLT();
+        NhapSachBLT bltNS = new NhapSachBLT(new DefaultNhapSachStrategy());
+
         Sach dtoS = new Sach();
         int SoLuongToiThieu = 100;
 
         public SachForm()
         {
             InitializeComponent();
+            bltNS.Subcribe(this);
+
             txt_sua_TheLoai.KeyPress += (s, e) => { e.Handled = true; };
             txt_them_TheLoai.KeyPress += (s, e) => { e.Handled = true; };
             txt_tracuu_TheLoai.KeyPress += (s, e) => { e.Handled = true; };
@@ -87,11 +91,15 @@ namespace CNPM
                             if (row.Cells["MaSach"].Value.ToString() == maS)
                                 dgv_Sach.CurrentCell = dgv_Sach.Rows[row.Index].Cells[0];
                         showSelected();
+
                         MessageBox.Show("Thêm thành công");
+                        bltSach.Notify();
+                        
                         txt_them_TacGia.Text = "";
                         txt_them_DonGia.Text = "";
                         txt_them_TenSach.Text = "";
                         txt_them_TheLoai.Text = "";
+
                     }
                     else
                         MessageBox.Show("Thêm thất bại");
@@ -112,6 +120,14 @@ namespace CNPM
                 tabControl.SelectedIndex = 0;
             };
             txt_filter_SoLuong.Text = SoLuongToiThieu.ToString();
+        }
+
+        public void UpdateByPublisher()
+        {
+            // Cập nhật giao diện khi có thông báo từ SachBLT và NhapSachBLT
+            Console.WriteLine("this is SachForm, Publisher updated!!!");
+            string maS = dtoS.MaSach.ToString();
+            dgv_Sach.DataSource = bltSach.getTable();
         }
 
         private void showSelected()

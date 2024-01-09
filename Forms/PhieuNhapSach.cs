@@ -11,7 +11,7 @@ using System.Text;
 
 namespace CNPM
 {
-    public partial class PhieuNhapSach : Form
+    public partial class PhieuNhapSach : Form, ISubcriber
     {
         SachBLT bltSach = new SachBLT();
         ThamSoBLT bltThamSo = new ThamSoBLT();
@@ -24,6 +24,9 @@ namespace CNPM
         public PhieuNhapSach()
         {
             InitializeComponent();
+            bltSach.Subcribe(this);
+
+
             lb_Ngay.Text =  DateTime.Now.ToString("d", new CultureInfo("pt-BR"));
             txt_QĐ1B.Text = (" ≤ " + bltThamSo.GetQD1B().ToString());
             txt_QĐ1A.Text = (" ≥ " + bltThamSo.GetQD1A().ToString());
@@ -138,9 +141,37 @@ namespace CNPM
                 else if (bltNS.Them(new NhapSach(TongTien), list))
                 {
                     MessageBox.Show("Thành công", "", MessageBoxButtons.OK);
+                    bltNS.Notify();
                     Close();
                 }
             };
+        }
+
+        public void UpdateByPublisher()
+        {
+            // Cập nhật giao diện khi có thông báo từ SachBLT
+            try
+            {
+                cb_MaSach.BeginUpdate(); // Ngăn chặn việc vẽ tạm thời cho performance
+
+                // Lấy dữ liệu sách mới nhất
+                DataTable dt = bltSach.getTable();
+                // Cập nhật dữ liệu cho ComboBox
+                cb_MaSach.DataSource = null;
+                cb_MaSach.DataSource = dt;
+                cb_MaSach.DisplayMember = "MaSach";
+                cb_MaSach.ValueMember = "MaSach";
+                cb_MaSach.TextChanged += (s, e) => cb_MaSach_on_TextChanged();
+                Console.WriteLine("this is PhieuNhapSach, Publisher updated!!!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra khi cập nhật danh sách sách: " + ex.Message);
+            }
+            finally
+            {
+                cb_MaSach.EndUpdate(); // Kết thúc cập nhật và cho phép vẽ lại
+            }
         }
 
         void TinhTongTien()

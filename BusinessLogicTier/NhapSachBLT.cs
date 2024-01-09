@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using CNPM.DataAccessTier;
+using CNPM.DesignPatterns;
 
 namespace CNPM
 {
@@ -79,9 +80,30 @@ namespace CNPM
         }
     }
 
-    class NhapSachBLT
+    class NhapSachBLT: IPublisher
     {
         private INhapSachStrategy strategy;
+
+        private List<ISubcriber> subcribers = new List<ISubcriber>();
+
+        public void Subcribe(ISubcriber subcriber)
+        {
+            subcribers.Add(subcriber);
+            Console.WriteLine("this is NhapSachBLT, subcriber updated!!!");
+        }
+
+        public void Unsubcribe(ISubcriber subcriber)
+        {
+            subcribers.Remove(subcriber);
+        }
+
+        public void Notify()
+        {
+            foreach (var subcriber in subcribers)
+            {
+                subcriber.UpdateByPublisher();
+            }
+        }
 
         public NhapSachBLT(INhapSachStrategy strategy)
         {
@@ -94,6 +116,7 @@ namespace CNPM
             if (strategy.KiemTraDieuKien(nhap_sach, list_ctns))
             {
                 strategy.ThucHien(nhap_sach, list_ctns);
+                Notify();
                 return true;
             }
             return false;

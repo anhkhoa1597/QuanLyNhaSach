@@ -40,20 +40,20 @@ namespace CNPM.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(198, 228);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(99, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 25);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Mật khẩu";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(198, 149);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(99, 77);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 25);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Tài khoản";
             // 
@@ -62,19 +62,19 @@ namespace CNPM.Forms
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.Orange;
-            this.Title.Location = new System.Drawing.Point(187, 27);
-            this.Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Title.Location = new System.Drawing.Point(94, 14);
+            this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(426, 91);
+            this.Title.Size = new System.Drawing.Size(214, 46);
             this.Title.TabIndex = 10;
             this.Title.Text = "Đăng nhập";
             // 
             // login_btn
             // 
-            this.login_btn.Location = new System.Drawing.Point(273, 332);
-            this.login_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.login_btn.Location = new System.Drawing.Point(136, 173);
+            this.login_btn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.login_btn.Name = "login_btn";
-            this.login_btn.Size = new System.Drawing.Size(234, 72);
+            this.login_btn.Size = new System.Drawing.Size(117, 37);
             this.login_btn.TabIndex = 9;
             this.login_btn.Text = "Login";
             this.login_btn.UseVisualStyleBackColor = true;
@@ -82,31 +82,32 @@ namespace CNPM.Forms
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(203, 258);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.password.Location = new System.Drawing.Point(102, 134);
+            this.password.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(388, 31);
+            this.password.Size = new System.Drawing.Size(196, 20);
             this.password.TabIndex = 8;
             // 
             // account
             // 
-            this.account.Location = new System.Drawing.Point(203, 179);
-            this.account.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.account.Location = new System.Drawing.Point(102, 93);
+            this.account.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.account.Name = "account";
-            this.account.Size = new System.Drawing.Size(388, 31);
+            this.account.Size = new System.Drawing.Size(196, 20);
             this.account.TabIndex = 7;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(400, 234);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.login_btn);
             this.Controls.Add(this.password);
             this.Controls.Add(this.account);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginForm";
             this.Text = "DangNhap";
             this.ResumeLayout(false);
