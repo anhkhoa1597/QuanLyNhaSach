@@ -104,8 +104,6 @@ namespace CNPM
             ShowMessage observer= new ShowMessage();
 
             notifyTracker.Attach(observer);
-
-
             
             gb_add.Paint += (s, e) => CusTomGroupBoxPaint(s, e);
             gb_info.Paint += (s, e) => CusTomGroupBoxPaint(s, e);
@@ -159,15 +157,11 @@ namespace CNPM
                     notifyTracker.Notice("Thêm thất bại");
                 else
                 {
-
-                    KhachHang khachhang = new KhachHangBuilder()
-                                             .SetTenKhachHang(txt_add_HoTen.Text.Trim())
-                                             .SetDienThoaiKhachHang(txt_add_DienThoai.Text.Trim())
-                                             .SetEmailKhachHang(txt_add_Email.Text.Trim())
-                                             .SetDiaChiKhachHang(txt_add_DiaChi.Text.Trim())
-                                             .Build();
-
-                    if (objKH.Them(khachhang))
+                    dtoKH.TenKhachHang = txt_add_HoTen.Text.Trim();
+                    dtoKH.Email = txt_add_Email.Text.Trim();
+                    dtoKH.DiaChi = txt_add_DiaChi.Text.Trim();
+                    dtoKH.DienThoai = txt_add_DienThoai.Text.Trim();
+                    if (objKH.Them(dtoKH))
                     {
                         dgv_KhachHang_info.DataSource = objKH.getTable();
                         notifyTracker.Notice("Thêm thành công");

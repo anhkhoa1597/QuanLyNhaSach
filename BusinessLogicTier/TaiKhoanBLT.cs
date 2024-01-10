@@ -39,12 +39,9 @@ namespace CNPM.BusinessLogicTier
             Console.WriteLine($"[{DateTime.Now}] Đang xác thực người dùng: {username}");
 
             //kiểm tra mật khẩu
-            if (string.IsNullOrWhiteSpace(password))
-            {
-                Console.WriteLine("Lỗi: Mật khẩu không được để trống.");
+            if (!this.checkAuth(username, password)) {
                 return false;
-            }
-
+            };
 
             //real
             bool isAuthenticated = taiKhoanBLT.Authenticate(username, password);
@@ -53,6 +50,16 @@ namespace CNPM.BusinessLogicTier
             Console.WriteLine(isAuthenticated ? "Đăng nhập thành công." : "Đăng nhập thất bại.");
 
             return isAuthenticated;
+        }
+
+        private bool checkAuth(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(password) || password.Length >= 6)
+            {
+                Console.WriteLine("Lỗi: Mật khẩu không được để trống.");
+                return false;
+            }
+            return true;
         }
     }
 }
