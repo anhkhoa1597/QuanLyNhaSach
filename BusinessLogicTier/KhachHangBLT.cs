@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using CNPM.DataAccessTier;
+using CNPM.DesignPatterns;
 
 namespace CNPM
 {
@@ -37,4 +38,5 @@ namespace CNPM
             return false;
         }
     }
+   
 }

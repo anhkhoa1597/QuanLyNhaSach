@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using CNPM.DesignPatterns;
 
 namespace CNPM
 {
@@ -157,11 +158,14 @@ namespace CNPM
                     notifyTracker.Notice("Thêm thất bại");
                 else
                 {
-                    dtoKH.TenKhachHang = txt_add_HoTen.Text.Trim();
-                    dtoKH.Email = txt_add_Email.Text.Trim();
-                    dtoKH.DiaChi = txt_add_DiaChi.Text.Trim();
-                    dtoKH.DienThoai = txt_add_DienThoai.Text.Trim();
-                    if (objKH.Them(dtoKH))
+                    KhachHang khachhang = new KhachHangBuilder()
+                                            .SetTenKhachHang(txt_add_HoTen.Text.Trim())
+                                            .SetDienThoaiKhachHang(txt_add_DienThoai.Text.Trim())
+                                            .SetEmailKhachHang(txt_add_Email.Text.Trim())
+                                            .SetDiaChiKhachHang(txt_add_DiaChi.Text.Trim())
+                                            .Build();
+                                             
+                    if (objKH.Them(khachhang))
                     {
                         dgv_KhachHang_info.DataSource = objKH.getTable();
                         notifyTracker.Notice("Thêm thành công");

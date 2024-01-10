@@ -54,7 +54,7 @@ namespace CNPM.BusinessLogicTier
 
         private bool checkAuth(string username, string password)
         {
-            if (string.IsNullOrWhiteSpace(password) || password.Length >= 6)
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 6)
             {
                 Console.WriteLine("Lỗi: Mật khẩu không được để trống.");
                 return false;
