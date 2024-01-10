@@ -13,10 +13,10 @@ namespace CNPM
 {
     public partial class PhieuNhapSach : Form, ISubcriber
     {
-        SachBLT bltSach = new SachBLT();
+        SachBLT bltSach = SachBLT.Instance;
         ThamSoBLT bltThamSo = new ThamSoBLT();
         //Client của mẫu Strategy
-        NhapSachBLT bltNS = new NhapSachBLT(new DefaultNhapSachStrategy());
+        NhapSachBLT bltNS = NhapSachBLT.Instance;
         int check = 1;
 
         int TongTien = 0;
@@ -28,8 +28,8 @@ namespace CNPM
 
 
             lb_Ngay.Text =  DateTime.Now.ToString("d", new CultureInfo("pt-BR"));
-            txt_QĐ1B.Text = (" ≤ " + bltThamSo.GetQD1B().ToString());
-            txt_QĐ1A.Text = (" ≥ " + bltThamSo.GetQD1A().ToString());
+            txt_QDNhapSachVeLuongTon.Text = (" ≤ " + bltThamSo.GetQDNhapSachVeLuongTon().ToString());
+            txt_QDNhapSachVeSoLuong.Text = (" ≥ " + bltThamSo.GetQDNhapSachVeSoLuong().ToString());
             DataTable dt = bltSach.getTable();
             //dt.Columns.Add("FullName", typeof(string), "MaSach + ' - ' + TenSach");
             cb_MaSach.DataSource = dt;
@@ -47,9 +47,9 @@ namespace CNPM
                     int so_luong_ton = 0;
                     if (String.IsNullOrWhiteSpace(txt_TenSach.Text) || !int.TryParse(txt_SoLuongTon.Text, out so_luong_ton))
                         MessageBox.Show("Mã sách không có trong cơ sở dữ liệu", "Thêm chi tiết nhập sách thất bại");
-                    else if (!int.TryParse(txt_SoLuongNhap.Text, out so_luong_nhap) || so_luong_nhap < bltThamSo.GetQD1A())
-                        MessageBox.Show("Phải có số lượng nhập phải lớn hơn " + bltThamSo.GetQD1A(), "Thêm chi tiết nhập sách thất bại");
-                    else if (so_luong_ton > bltThamSo.GetQD1B())
+                    else if (!int.TryParse(txt_SoLuongNhap.Text, out so_luong_nhap) || so_luong_nhap < bltThamSo.GetQDNhapSachVeSoLuong())
+                        MessageBox.Show("Phải có số lượng nhập phải lớn hơn " + bltThamSo.GetQDNhapSachVeSoLuong(), "Thêm chi tiết nhập sách thất bại");
+                    else if (so_luong_ton > bltThamSo.GetQDNhapSachVeLuongTon())
                         MessageBox.Show("Số lượng tồn lớn hơn số lượng cần thiết để nhập", "Thêm chi tiết nhập sách thất bại");
                     else
                     {
@@ -162,7 +162,7 @@ namespace CNPM
                 cb_MaSach.DisplayMember = "MaSach";
                 cb_MaSach.ValueMember = "MaSach";
                 cb_MaSach.TextChanged += (s, e) => cb_MaSach_on_TextChanged();
-                Console.WriteLine("this is PhieuNhapSach, Publisher updated!!!");
+                Console.WriteLine("this is PhieuNhapSach, Publisher has been updated!!!");
             }
             catch (Exception ex)
             {
@@ -229,20 +229,19 @@ namespace CNPM
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            bltNS= new NhapSachBLT(new DefaultNhapSachStrategy());
+            bltNS= NhapSachBLT.Instance;
             check = 1;
-            txt_QĐ1B.Text = (" ≤ " + bltThamSo.GetQD1B().ToString());
-            txt_QĐ1A.Text = (" ≥ " + bltThamSo.GetQD1A().ToString());
+            txt_QDNhapSachVeLuongTon.Text = (" ≤ " + bltThamSo.GetQDNhapSachVeLuongTon().ToString());
+            txt_QDNhapSachVeSoLuong.Text = (" ≥ " + bltThamSo.GetQDNhapSachVeSoLuong().ToString());
 
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            
-            bltNS= new NhapSachBLT(new BackupNhapSachStrategy());
+            bltNS= NhapSachBLT.Instance;
             check = 2;
-            txt_QĐ1B.Text = (" ≤ " + bltThamSo.GetQD2B().ToString());
-            txt_QĐ1A.Text = (" ≥ " + bltThamSo.GetQD2A().ToString());
+            txt_QDNhapSachVeLuongTon.Text = (" ≤ " + bltThamSo.GetQD2B().ToString());
+            txt_QDNhapSachVeSoLuong.Text = (" ≥ " + bltThamSo.GetQD2A().ToString());
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CNPM
     {
         int TongTien = 0;
         int TienThoi = 0;
-        SachBLT objS = new SachBLT();
+        SachBLT objS = SachBLT.Instance;
         HoaDonBLT objHD = new HoaDonBLT();
         ThamSoBLT bltThamSo = new ThamSoBLT();
         KhachHangBLT objKH = new KhachHangBLT();

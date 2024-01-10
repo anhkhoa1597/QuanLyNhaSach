@@ -13,8 +13,8 @@ namespace CNPM
 {
     public partial class SachForm : Form, ISubcriber
     {
-        SachBLT bltSach = new SachBLT();
-        NhapSachBLT bltNS = new NhapSachBLT(new DefaultNhapSachStrategy());
+        SachBLT bltSach = SachBLT.Instance;
+        NhapSachBLT bltNS = NhapSachBLT.Instance;
 
         Sach dtoS = new Sach();
         int SoLuongToiThieu = 100;
@@ -60,6 +60,7 @@ namespace CNPM
                                 dgv_Sach.CurrentCell = dgv_Sach.Rows[row.Index].Cells[0];
                         showSelected();
                         MessageBox.Show("Sửa thành công");
+                        bltSach.Notify();
                     }
                     else
                         MessageBox.Show("Sửa thất bại");
@@ -125,8 +126,7 @@ namespace CNPM
         public void UpdateByPublisher()
         {
             // Cập nhật giao diện khi có thông báo từ SachBLT và NhapSachBLT
-            Console.WriteLine("this is SachForm, Publisher updated!!!");
-            string maS = dtoS.MaSach.ToString();
+            Console.WriteLine("this is SachForm, Publisher has been updated!!!");
             dgv_Sach.DataSource = bltSach.getTable();
         }
 

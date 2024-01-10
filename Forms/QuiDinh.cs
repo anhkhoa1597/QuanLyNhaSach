@@ -33,8 +33,8 @@ namespace CNPM
                     }
                 }
             }
-            txt_QD1A.Text = objTS.GetQD1A().ToString();
-            txt_QD1B.Text = objTS.GetQD1B().ToString();
+            txt_QD1A.Text = objTS.GetQDNhapSachVeSoLuong().ToString();
+            txt_QD1B.Text = objTS.GetQDNhapSachVeLuongTon().ToString();
             txt_QD2A.Text = objTS.GetQD2A().ToString();
             txt_QD2B.Text = objTS.GetQD2B().ToString();
             checkBox1.Checked = objTS.GetQD4();

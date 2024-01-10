@@ -13,7 +13,7 @@ namespace CNPM.DataAccessTier
         {
         }
 
-        public int GetQD1A()
+        public int GetQDNhapSachVeSoLuong()
         {
 
             DBConnection conn = DBConnection.Instance;
@@ -24,7 +24,7 @@ namespace CNPM.DataAccessTier
             return temp;
         }
 
-        public int GetQD1B()
+        public int GetQDNhapSachVeLuongTon()
         {
 
             DBConnection conn = DBConnection.Instance;

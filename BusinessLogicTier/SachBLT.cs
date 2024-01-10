@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -17,6 +17,21 @@ namespace CNPM
     class SachBLT:ISachFactory, IPublisher
     {
         SachDAT objSach = new SachDAT();
+        private static SachBLT instance;
+
+        private SachBLT() { }
+
+        public static SachBLT Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new SachBLT();
+                }
+                return instance;
+            }
+        }
 
         private List<ISubcriber> subcribers = new List<ISubcriber>();
 
@@ -33,10 +48,8 @@ namespace CNPM
 
         public void Notify()
         {
-            Console.WriteLine("this is Notify, test....");
             foreach (var subcriber in subcribers)
             {
-                Console.WriteLine("this is Notify, test 2....");
                 subcriber.UpdateByPublisher();
             }
         }

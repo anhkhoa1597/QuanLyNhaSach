@@ -10,14 +10,14 @@ namespace CNPM
     {
         ThamSoDAT objThamSo = new ThamSoDAT();
 
-        public int GetQD1A()
+        public int GetQDNhapSachVeSoLuong()
         {
-            return objThamSo.GetQD1A();
+            return objThamSo.GetQDNhapSachVeSoLuong();
         }
 
-        public int GetQD1B()
+        public int GetQDNhapSachVeLuongTon()
         {
-            return objThamSo.GetQD1B();
+            return objThamSo.GetQDNhapSachVeLuongTon();
         }
 
         public int GetQD2A()
