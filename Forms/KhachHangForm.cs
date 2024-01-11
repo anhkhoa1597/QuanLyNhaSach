@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using CNPM.DesignPatterns;
+using System.Diagnostics;
 
 namespace CNPM
 {
@@ -164,6 +165,7 @@ namespace CNPM
                                             .SetEmailKhachHang(txt_add_Email.Text.Trim())
                                             .SetDiaChiKhachHang(txt_add_DiaChi.Text.Trim())
                                             .Build();
+
                                              
                     if (objKH.Them(khachhang))
                     {
