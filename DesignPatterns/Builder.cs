@@ -6,20 +6,28 @@ using System.Threading.Tasks;
 
 namespace CNPM.DesignPatterns
 {
-      interface IKhachHangBuilder
+    interface IKhachHangBuilder
     {
+        IKhachHangBuilder SetMaKhachHang(int maKhachHang);
         IKhachHangBuilder SetTenKhachHang(string tenKhachHang);
         IKhachHangBuilder SetDienThoaiKhachHang(string dienThoai);
         IKhachHangBuilder SetEmailKhachHang(string email);
         IKhachHangBuilder SetDiaChiKhachHang(string diaChi);
+        IKhachHangBuilder SetSoTienNo(int soTienNo);
 
         KhachHang Build();
     }
-     class KhachHangBuilder : IKhachHangBuilder
-    {
 
-        public int MaKhachHang, SoTienNo;
-        public string TenKhachHang, DienThoai, DiaChi, Email;
+    class KhachHangBuilder : IKhachHangBuilder
+    {
+        private int MaKhachHang, SoTienNo;
+        private string TenKhachHang, DienThoai, DiaChi, Email;
+
+        public IKhachHangBuilder SetMaKhachHang(int maKhachHang)
+        {
+            this.MaKhachHang = maKhachHang;
+            return this;
+        }
 
         public IKhachHangBuilder SetTenKhachHang(string tenKhachHang)
         {
@@ -45,11 +53,16 @@ namespace CNPM.DesignPatterns
             return this;
         }
 
-        // ... Thêm các phương thức setter khác
+        public IKhachHangBuilder SetSoTienNo(int soTienNo)
+        {
+            this.SoTienNo = soTienNo;
+            return this;
+        }
 
         public KhachHang Build()
         {
             return new KhachHang(MaKhachHang, TenKhachHang, DienThoai, Email, DiaChi, SoTienNo);
         }
     }
+
 }

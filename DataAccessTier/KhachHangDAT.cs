@@ -79,11 +79,12 @@ namespace CNPM.DataAccessTier
 
             DBConnection conn = DBConnection.Instance;
             conn.getConn().Open();
-            OleDbCommand cmd = new OleDbCommand("Insert into KHACHHANG(HoTenKhachHang, Email, DiaChi, DienThoai) values (@1, @2, @3, @4)", conn.getConn());
+            OleDbCommand cmd = new OleDbCommand("Insert into KHACHHANG(HoTenKhachHang, Email, DiaChi, DienThoai , SoTienNo) values (@1, @2, @3, @4,@5)", conn.getConn());
             cmd.Parameters.Add("@1", OleDbType.BSTR).Value = khach_hang.TenKhachHang;
             cmd.Parameters.Add("@2", OleDbType.BSTR).Value = khach_hang.Email;
             cmd.Parameters.Add("@3", OleDbType.BSTR).Value = khach_hang.DiaChi;
             cmd.Parameters.Add("@4", OleDbType.BSTR).Value = khach_hang.DienThoai;
+            cmd.Parameters.Add("@5", OleDbType.BSTR).Value = khach_hang.SoTienNo;
             bool res = (cmd.ExecuteNonQuery() > 0);
             conn.getConn().Close();
             return res;

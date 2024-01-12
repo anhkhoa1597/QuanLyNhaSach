@@ -38,10 +38,11 @@ namespace CNPM.BusinessLogicTier
             //logging proxy
             Console.WriteLine($"[{DateTime.Now}] Đang xác thực người dùng: {username}");
 
-            //kiểm tra mật khẩu
-            if (!this.checkAuth(username, password)) {
+            // Kiểm tra mật khẩu
+            if (!CheckAuth(password))
+            {
                 return false;
-            };
+            }
 
             //real
             bool isAuthenticated = taiKhoanBLT.Authenticate(username, password);
@@ -52,11 +53,11 @@ namespace CNPM.BusinessLogicTier
             return isAuthenticated;
         }
 
-        private bool checkAuth(string username, string password)
+        private bool CheckAuth(string password)
         {
             if (string.IsNullOrWhiteSpace(password) || password.Length < 6)
             {
-                Console.WriteLine("Lỗi: Mật khẩu không được để trống.");
+                Console.WriteLine("Lỗi: Mật khẩu không hợp lệ.");
                 return false;
             }
             return true;
