@@ -159,14 +159,34 @@ namespace CNPM
                     notifyTracker.Notice("Thêm thất bại");
                 else
                 {
-                    KhachHang khachhang = new KhachHangBuilder()
-                                            .SetTenKhachHang(txt_add_HoTen.Text.Trim())
-                                            .SetDienThoaiKhachHang(txt_add_DienThoai.Text.Trim())
-                                            .SetEmailKhachHang(txt_add_Email.Text.Trim())
-                                            .SetDiaChiKhachHang(txt_add_DiaChi.Text.Trim())
-                                            .Build();
+                    KhachHangBuilder builder = new KhachHangBuilder();
+                    builder.reset();
+                    builder.SetTenKhachHang(txt_add_HoTen.Text.Trim());
+                    builder.SetDienThoai(txt_add_DienThoai.Text.Trim());
+                    builder.SetEmail(txt_add_Email.Text.Trim());
+                    builder.SetDiaChi(txt_add_DiaChi.Text.Trim());
+                    KhachHang khachhang = builder.Build();
+                    /*
+                    KhachHangVIPBuilder vipbuilder = new KhachHangVIPBuilder();
+                    vipbuilder.reset();
+                    vipbuilder.SetTenKhachHang(txt_add_HoTen.Text.Trim());
+                    vipbuilder.SetDienThoai(txt_add_DienThoai.Text.Trim());
+                    vipbuilder.SetEmail(txt_add_Email.Text.Trim());
+                    vipbuilder.SetDiaChi(txt_add_DiaChi.Text.Trim());
+                    vipbuilder.SetDiemThuong(1000);
+                    KhachHangVIP khachhangvip = vipbuilder.Build();
 
-                                             
+                    KhachHangDoanhNghiepBuilder doanhnghiepbuilder = new KhachHangDoanhNghiepBuilder();
+                    doanhnghiepbuilder.reset();
+                    doanhnghiepbuilder.SetTenKhachHang(txt_add_HoTen.Text.Trim());
+                    doanhnghiepbuilder.SetDienThoai(txt_add_DienThoai.Text.Trim());
+                    doanhnghiepbuilder.SetEmail(txt_add_Email.Text.Trim());
+                    doanhnghiepbuilder.SetDiaChi(txt_add_DiaChi.Text.Trim());
+                    doanhnghiepbuilder.SetChietKhau(0.03);
+                    doanhnghiepbuilder.SetTenCongTy("Tên Công Ty");
+                    doanhnghiepbuilder.SetMaSoThue("Mã Số Thuế");
+                    KhachHangDoanhNghiep khachHangDoanhNghiep = doanhnghiepbuilder.Build();
+                    */
                     if (objKH.Them(khachhang))
                     {
                         dgv_KhachHang_info.DataSource = objKH.getTable();

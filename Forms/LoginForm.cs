@@ -25,6 +25,7 @@ namespace CNPM.Forms
             string tenTaiKhoan = account.Text;
             string matKhau = password.Text;
             TaiKhoanBLT taiKhoanBLT = new TaiKhoanBLT();
+
             AuthenticationProxy authProxy = new AuthenticationProxy(taiKhoanBLT);
 
             //xác thực thông qua proxy

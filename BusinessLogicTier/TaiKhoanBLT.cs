@@ -27,23 +27,19 @@ namespace CNPM.BusinessLogicTier
     class AuthenticationProxy:IAuthentication
     {
         private TaiKhoanBLT taiKhoanBLT;
-
         public AuthenticationProxy(TaiKhoanBLT taiKhoanBLT)
         {
             this.taiKhoanBLT = taiKhoanBLT;
         }
-
         public bool Authenticate(string username, string password)
         {
             //logging proxy
             Console.WriteLine($"[{DateTime.Now}] Đang xác thực người dùng: {username}");
-
             // Kiểm tra mật khẩu
             if (!CheckAuth(password))
             {
                 return false;
             }
-
             //real
             bool isAuthenticated = taiKhoanBLT.Authenticate(username, password);
 

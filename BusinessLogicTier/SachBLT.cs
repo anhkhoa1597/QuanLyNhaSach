@@ -14,13 +14,11 @@ namespace CNPM
         int Them(Sach sach);
         bool Sua(Sach sach);
     }
-    class SachBLT:ISachFactory, IPublisher
+    class SachBLT:ISachFactory, IPublisher, ISubcriber
     {
-        SachDAT objSach = new SachDAT();
+        // Singleton
         private static SachBLT instance;
-
         private SachBLT() { }
-
         public static SachBLT Instance
         {
             get
@@ -33,8 +31,10 @@ namespace CNPM
             }
         }
 
-        private List<ISubcriber> subcribers = new List<ISubcriber>();
+        SachDAT objSach = new SachDAT();
 
+        // Đóng vai trò là Publisher
+        private List<ISubcriber> subcribers = new List<ISubcriber>();
         public void Subcribe(ISubcriber subcriber)
         {
             subcribers.Add(subcriber);
@@ -52,6 +52,14 @@ namespace CNPM
             {
                 subcriber.UpdateByPublisher();
             }
+        }
+
+        // Đóng vai trò là Subcriber
+        public event Action OnSachUpdated;
+        public void UpdateByPublisher()
+        {
+            Console.WriteLine("This is Sach, Publisher has been updated!!!");
+            OnSachUpdated?.Invoke();
         }
 
         public DataTable getTable(Sach sach = null)

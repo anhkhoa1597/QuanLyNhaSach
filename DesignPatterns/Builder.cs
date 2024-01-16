@@ -8,61 +8,174 @@ namespace CNPM.DesignPatterns
 {
     interface IKhachHangBuilder
     {
-        IKhachHangBuilder SetMaKhachHang(int maKhachHang);
-        IKhachHangBuilder SetTenKhachHang(string tenKhachHang);
-        IKhachHangBuilder SetDienThoaiKhachHang(string dienThoai);
-        IKhachHangBuilder SetEmailKhachHang(string email);
-        IKhachHangBuilder SetDiaChiKhachHang(string diaChi);
-        IKhachHangBuilder SetSoTienNo(int soTienNo);
-
-        KhachHang Build();
+        void reset();
+        void SetMaKhachHang(int maKhachHang);
+        void SetTenKhachHang(string tenKhachHang);
+        void SetDienThoai(string dienThoai);
+        void SetDiaChi(string diaChi);
+        void SetEmail(string email);
+        void SetSoTienNo(int soTienNo);
     }
 
     class KhachHangBuilder : IKhachHangBuilder
     {
-        private int MaKhachHang, SoTienNo;
-        private string TenKhachHang, DienThoai, DiaChi, Email;
+        private KhachHang khachHang = new KhachHang();
 
-        public IKhachHangBuilder SetMaKhachHang(int maKhachHang)
+        public void reset()
         {
-            this.MaKhachHang = maKhachHang;
-            return this;
+            khachHang = new KhachHang();
         }
 
-        public IKhachHangBuilder SetTenKhachHang(string tenKhachHang)
+        public void SetMaKhachHang(int maKhachHang)
         {
-            this.TenKhachHang = tenKhachHang;
-            return this;
+            khachHang.MaKhachHang = maKhachHang;
         }
 
-        public IKhachHangBuilder SetDienThoaiKhachHang(string dienThoai)
+        public void SetTenKhachHang(string tenKhachHang)
         {
-            this.DienThoai = dienThoai;
-            return this;
+            khachHang.TenKhachHang = tenKhachHang;
         }
 
-        public IKhachHangBuilder SetEmailKhachHang(string email)
+        public void SetDienThoai(string dienThoai)
         {
-            this.Email = email;
-            return this;
+            khachHang.DienThoai = dienThoai;
         }
 
-        public IKhachHangBuilder SetDiaChiKhachHang(string diaChi)
+        public void SetEmail(string email)
         {
-            this.DiaChi = diaChi;
-            return this;
+            khachHang.Email = email;
         }
 
-        public IKhachHangBuilder SetSoTienNo(int soTienNo)
+        public void SetDiaChi(string diaChi)
         {
-            this.SoTienNo = soTienNo;
-            return this;
+            khachHang.DiaChi = diaChi;
+        }
+
+        public void SetSoTienNo(int soTienNo)
+        {
+            khachHang.SoTienNo = soTienNo;
         }
 
         public KhachHang Build()
         {
-            return new KhachHang(MaKhachHang, TenKhachHang, DienThoai, Email, DiaChi, SoTienNo);
+            KhachHang result = this.khachHang;
+            this.reset();
+            return result;
         }
     }
 
+    class KhachHangVIPBuilder : IKhachHangBuilder
+    {
+        private KhachHangVIP khachHang = new KhachHangVIP();
+
+        public void reset()
+        {
+            khachHang = new KhachHangVIP();
+        }
+
+        public void SetMaKhachHang(int maKhachHang)
+        {
+            khachHang.MaKhachHang = maKhachHang;
+        }
+
+        public void SetTenKhachHang(string tenKhachHang)
+        {
+            khachHang.TenKhachHang = tenKhachHang;
+        }
+
+        public void SetDienThoai(string dienThoai)
+        {
+            khachHang.DienThoai = dienThoai;  
+        }
+
+        public void SetEmail(string email)
+        {
+            khachHang.Email = email;
+        }
+
+        public void SetDiaChi(string diaChi)
+        {
+            khachHang.DiaChi = diaChi;
+        }
+
+        public void SetSoTienNo(int soTienNo)
+        {
+            khachHang.SoTienNo = soTienNo;
+        }
+
+        public void SetDiemThuong(int DiemThuong)
+        {
+            khachHang.DiemThuong = DiemThuong;
+        }
+
+        public KhachHangVIP Build()
+        {
+            KhachHangVIP result = this.khachHang;
+            this.reset();
+            return result;
+        }
+    }
+
+    class KhachHangDoanhNghiepBuilder : IKhachHangBuilder
+    {
+        private KhachHangDoanhNghiep khachHang = new KhachHangDoanhNghiep();
+
+        public void reset()
+        {
+            khachHang = new KhachHangDoanhNghiep();
+        }
+
+        public void SetMaKhachHang(int maKhachHang)
+        {
+            khachHang.MaKhachHang = maKhachHang;
+        }
+
+        public void SetTenKhachHang(string tenKhachHang)
+        {
+            khachHang.TenKhachHang = tenKhachHang;
+        }
+
+        public void SetDienThoai(string dienThoai)
+        {
+            khachHang.DienThoai = dienThoai;
+            
+        }
+
+        public void SetEmail(string email)
+        {
+            khachHang.Email = email;
+        }
+
+        public void SetDiaChi(string diaChi)
+        {
+            khachHang.DiaChi = diaChi; 
+        }
+
+        public void SetSoTienNo(int soTienNo)
+        {
+            khachHang.SoTienNo = soTienNo;
+        }
+
+        public void SetChietKhau(double ChietKhau)
+        {
+            khachHang.ChietKhau = ChietKhau;
+        }
+
+        public void SetTenCongTy(string TenCongTy)
+        {
+            khachHang.TenCongTy = TenCongTy;
+        }
+
+        public void SetMaSoThue(string MaSoThue)
+        {
+            khachHang.MaSoThue = MaSoThue;
+        }
+
+        public KhachHangDoanhNghiep Build()
+        {
+            KhachHangDoanhNghiep result = this.khachHang;
+            this.reset();
+            return result;
+        }
+    }
 }

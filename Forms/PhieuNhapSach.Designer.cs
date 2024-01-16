@@ -79,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 366);
+            this.label1.Location = new System.Drawing.Point(60, 365);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 37);
@@ -91,10 +91,10 @@
             this.btnLap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnLap.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLap.ForeColor = System.Drawing.Color.Black;
-            this.btnLap.Location = new System.Drawing.Point(150, 509);
+            this.btnLap.Location = new System.Drawing.Point(150, 510);
             this.btnLap.Margin = new System.Windows.Forms.Padding(0);
             this.btnLap.Name = "btnLap";
-            this.btnLap.Size = new System.Drawing.Size(330, 97);
+            this.btnLap.Size = new System.Drawing.Size(330, 96);
             this.btnLap.TabIndex = 6;
             this.btnLap.Text = "Lập phiếu";
             this.btnLap.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             this.SoLuongNhap,
             this.DonGia,
             this.ThanhTien});
-            this.dataGridView.Location = new System.Drawing.Point(20, 664);
+            this.dataGridView.Location = new System.Drawing.Point(20, 663);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
@@ -195,7 +195,7 @@
             // 
             this.lb_Ngay.AutoSize = true;
             this.lb_Ngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Ngay.Location = new System.Drawing.Point(360, 366);
+            this.lb_Ngay.Location = new System.Drawing.Point(360, 365);
             this.lb_Ngay.Margin = new System.Windows.Forms.Padding(0);
             this.lb_Ngay.Name = "lb_Ngay";
             this.lb_Ngay.Size = new System.Drawing.Size(84, 37);
@@ -229,10 +229,10 @@
             this.panel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel.Controls.Add(this.label12);
             this.panel.Controls.Add(this.label11);
-            this.panel.Location = new System.Drawing.Point(50, 39);
+            this.panel.Location = new System.Drawing.Point(50, 38);
             this.panel.Margin = new System.Windows.Forms.Padding(0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(530, 289);
+            this.panel.Size = new System.Drawing.Size(530, 288);
             this.panel.TabIndex = 15;
             // 
             // label12
@@ -241,7 +241,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(160, 134);
+            this.label12.Location = new System.Drawing.Point(160, 135);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.MaximumSize = new System.Drawing.Size(400, 0);
             this.label12.Name = "label12";
@@ -300,7 +300,7 @@
             this.txt_QDNhapSachVeSoLuong.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txt_QDNhapSachVeSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txt_QDNhapSachVeSoLuong.ForeColor = System.Drawing.Color.Green;
-            this.txt_QDNhapSachVeSoLuong.Location = new System.Drawing.Point(740, 386);
+            this.txt_QDNhapSachVeSoLuong.Location = new System.Drawing.Point(740, 387);
             this.txt_QDNhapSachVeSoLuong.Margin = new System.Windows.Forms.Padding(0);
             this.txt_QDNhapSachVeSoLuong.Name = "txt_QDNhapSachVeSoLuong";
             this.txt_QDNhapSachVeSoLuong.ReadOnly = true;
@@ -324,7 +324,7 @@
             this.txt_DonGia.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txt_DonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txt_DonGia.ForeColor = System.Drawing.Color.Firebrick;
-            this.txt_DonGia.Location = new System.Drawing.Point(280, 453);
+            this.txt_DonGia.Location = new System.Drawing.Point(280, 454);
             this.txt_DonGia.Margin = new System.Windows.Forms.Padding(0);
             this.txt_DonGia.Name = "txt_DonGia";
             this.txt_DonGia.ReadOnly = true;
@@ -360,7 +360,7 @@
             this.txt_TacGia.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txt_TacGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txt_TacGia.ForeColor = System.Drawing.Color.Firebrick;
-            this.txt_TacGia.Location = new System.Drawing.Point(280, 184);
+            this.txt_TacGia.Location = new System.Drawing.Point(280, 185);
             this.txt_TacGia.Margin = new System.Windows.Forms.Padding(0);
             this.txt_TacGia.Name = "txt_TacGia";
             this.txt_TacGia.ReadOnly = true;
@@ -397,7 +397,7 @@
             this.glowBox7.Cursor = System.Windows.Forms.Cursors.Default;
             this.glowBox7.GlowColor = System.Drawing.Color.PowderBlue;
             this.glowBox7.GlowOn = false;
-            this.glowBox7.Location = new System.Drawing.Point(270, 41);
+            this.glowBox7.Location = new System.Drawing.Point(270, 40);
             this.glowBox7.Margin = new System.Windows.Forms.Padding(0);
             this.glowBox7.Name = "glowBox7";
             this.glowBox7.Size = new System.Drawing.Size(306, 54);
@@ -428,7 +428,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(132, 259);
+            this.label10.Location = new System.Drawing.Point(132, 260);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 30);
@@ -450,7 +450,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(140, 461);
+            this.label5.Location = new System.Drawing.Point(140, 462);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 30);
@@ -493,7 +493,7 @@
             this.btnThem.BackColor = System.Drawing.Color.Teal;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(520, 528);
+            this.btnThem.Location = new System.Drawing.Point(520, 529);
             this.btnThem.Margin = new System.Windows.Forms.Padding(0);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(320, 77);
@@ -517,7 +517,7 @@
             this.btnXoa.BackColor = System.Drawing.Color.Teal;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(100, 528);
+            this.btnXoa.Location = new System.Drawing.Point(100, 529);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(0);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(320, 77);
@@ -540,8 +540,8 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(50, 3);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton1.Location = new System.Drawing.Point(50, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(205, 29);
             this.radioButton1.TabIndex = 17;
@@ -553,8 +553,8 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(248, 3);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton2.Location = new System.Drawing.Point(248, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(205, 29);
             this.radioButton2.TabIndex = 18;
@@ -568,7 +568,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1600, 1153);
+            this.ClientSize = new System.Drawing.Size(1612, 1195);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.gb);

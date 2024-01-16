@@ -11,7 +11,7 @@ using System.IO;
 
 namespace CNPM
 {
-    public partial class SachForm : Form, ISubcriber
+    public partial class SachForm : Form
     {
         SachBLT bltSach = SachBLT.Instance;
         NhapSachBLT bltNS = NhapSachBLT.Instance;
@@ -22,7 +22,8 @@ namespace CNPM
         public SachForm()
         {
             InitializeComponent();
-            bltNS.Subcribe(this);
+            bltNS.Subcribe(bltSach);
+            bltSach.OnSachUpdated += UpdateUI;
 
             txt_sua_TheLoai.KeyPress += (s, e) => { e.Handled = true; };
             txt_them_TheLoai.KeyPress += (s, e) => { e.Handled = true; };
@@ -123,10 +124,9 @@ namespace CNPM
             txt_filter_SoLuong.Text = SoLuongToiThieu.ToString();
         }
 
-        public void UpdateByPublisher()
+        public void UpdateUI()
         {
-            // Cập nhật giao diện khi có thông báo từ SachBLT và NhapSachBLT
-            Console.WriteLine("this is SachForm, Publisher has been updated!!!");
+            // Cập nhật giao diện khi có thông báo từ NhapSachBLT
             dgv_Sach.DataSource = bltSach.getTable();
         }
 

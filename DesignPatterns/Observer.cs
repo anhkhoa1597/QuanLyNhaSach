@@ -18,3 +18,4 @@ namespace CNPM
         void Notify();
     }
 }
+

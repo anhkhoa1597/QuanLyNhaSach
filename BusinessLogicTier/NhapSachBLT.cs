@@ -80,13 +80,11 @@ namespace CNPM
         }
     }
 
-    class NhapSachBLT//: IPublisher
+    class NhapSachBLT: IPublisher, ISubcriber
     {
         //Singleton
         private static NhapSachBLT instance;
-
         private NhapSachBLT() { }
-
         public static NhapSachBLT Instance
         {
             get
@@ -99,14 +97,12 @@ namespace CNPM
             }
         }
 
-
-
-        //private INhapSachStrategy strategy;
         SachBLT objSach = SachBLT.Instance;
         private ThamSoDAT objThamSo = new ThamSoDAT();
         private NhapSachDAT objNhapSach = new NhapSachDAT();
         private List<ISubcriber> subcribers = new List<ISubcriber>();
 
+        // Đóng vai trò là publisher
         public void Subcribe(ISubcriber subcriber)
         {
             subcribers.Add(subcriber);
@@ -126,11 +122,13 @@ namespace CNPM
             }
         }
 
-        //public NhapSachBLT(INhapSachStrategy strategy)
-        //{
-        //    this.strategy = strategy;
-        //}
-
+        // Đóng vai trò là Subcriber
+        public event Action OnNhapSachUpdated;
+        public void UpdateByPublisher()
+        {
+            Console.WriteLine("This is NhapSach, Publisher has been updated!!!");
+            OnNhapSachUpdated?.Invoke();
+        }
 
         public bool Them(NhapSach nhap_sach, List<ChiTietNhapSach> list_ctns)
         {

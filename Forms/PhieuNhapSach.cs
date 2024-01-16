@@ -11,11 +11,10 @@ using System.Text;
 
 namespace CNPM
 {
-    public partial class PhieuNhapSach : Form, ISubcriber
+    public partial class PhieuNhapSach : Form
     {
         SachBLT bltSach = SachBLT.Instance;
         ThamSoBLT bltThamSo = new ThamSoBLT();
-        //Client của mẫu Strategy
         NhapSachBLT bltNS = NhapSachBLT.Instance;
         int check = 1;
 
@@ -24,8 +23,8 @@ namespace CNPM
         public PhieuNhapSach()
         {
             InitializeComponent();
-            bltSach.Subcribe(this);
-
+            bltSach.Subcribe(bltNS);
+            bltNS.OnNhapSachUpdated += UpdateUI;
 
             lb_Ngay.Text =  DateTime.Now.ToString("d", new CultureInfo("pt-BR"));
             txt_QDNhapSachVeLuongTon.Text = (" ≤ " + bltThamSo.GetQDNhapSachVeLuongTon().ToString());
@@ -147,7 +146,7 @@ namespace CNPM
             };
         }
 
-        public void UpdateByPublisher()
+        public void UpdateUI()
         {
             // Cập nhật giao diện khi có thông báo từ SachBLT
             try
@@ -162,7 +161,6 @@ namespace CNPM
                 cb_MaSach.DisplayMember = "MaSach";
                 cb_MaSach.ValueMember = "MaSach";
                 cb_MaSach.TextChanged += (s, e) => cb_MaSach_on_TextChanged();
-                Console.WriteLine("this is PhieuNhapSach, Publisher has been updated!!!");
             }
             catch (Exception ex)
             {
